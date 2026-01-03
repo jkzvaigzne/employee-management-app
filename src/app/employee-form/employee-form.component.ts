@@ -19,7 +19,5 @@ export class EmployeeFormComponent {
     position: '',
   };
 
-  onSubmit(): void {
-    console.log(this.employee);
-  }
+  onSubmit(): void {}
 }
