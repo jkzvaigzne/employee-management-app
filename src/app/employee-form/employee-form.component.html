@@ -33,11 +33,13 @@
         </div>
     </div>
     <div class="form-floating mb-3">
-        <input required #email="ngModel" class="form-control" id="floatingInput" type="email" name="email"
+        <input required email #email="ngModel" class="form-control" id="floatingInput" type="email" name="email"
             [(ngModel)]="employee.email" placeholder="email" />
         <label class="form-label" for="floatingInput">Email*</label>
         <div *ngIf="email.invalid && (email.touched || email.dirty)">
             <div class="text-danger" *ngIf="email.errors?.['required']">Email is required.
+            </div>
+            <div class="text-danger" *ngIf="email.errors?.['email']">Email is invalid.
             </div>
         </div>
     </div>
