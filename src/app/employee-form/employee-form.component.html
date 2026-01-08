@@ -1,10 +1,11 @@
 <h2 class="text-center my-5">{{isEditing? 'Edit' : 'Create'}} Employee</h2>
 
-<div *ngIf="errorMessage != ''">
+<div class="text-danger text-center" *ngIf="errorMessage != ''">
     {{errorMessage}}
 </div>
 
-<form (ngSubmit)="onSubmit()" #employeeForm="ngForm" class="border rounded p-5 w-50 mb-5 mx-auto">
+<form *ngIf="errorMessage === ''" (ngSubmit)="onSubmit()" #employeeForm="ngForm"
+    class="border rounded p-5 w-50 mb-5 mx-auto">
     <div class="form-floating mb-3">
         <input required #firstName="ngModel" class="form-control" id="floatingInput" type="text" name="firstName"
             [(ngModel)]="employee.firstName" placeholder="First name" />
