@@ -24,9 +24,13 @@
         </div>
     </div>
     <div class="form-floating mb-3">
-        <input class="form-control" id="floatingInput" type="phone" name="phone" [(ngModel)]="employee.phone"
-            placeholder="Phone" />
-        <label class="form-label" for="floatingInput">Phone</label>
+        <input required #phone="ngModel" class="form-control" id="floatingInput" type="phone" name="phone"
+            [(ngModel)]="employee.phone" placeholder="Phone" />
+        <label class="form-label" for="floatingInput">Phone*</label>
+        <div *ngIf="phone.invalid && (phone.touched || phone.dirty)">
+            <div class="text-danger" *ngIf="phone.errors?.['required']">Phone is required.
+            </div>
+        </div>
     </div>
     <div class="form-floating mb-3">
         <input required #email="ngModel" class="form-control" id="floatingInput" type="email" name="email"
@@ -38,9 +42,13 @@
         </div>
     </div>
     <div class="form-floating mb-3">
-        <input class="form-control" id="floatingInput" type="text" name="position" [(ngModel)]="employee.position"
-            placeholder="Position" />
-        <label class="form-label" for="floatingInput">Position</label>
+        <input required #position="ngModel" class="form-control" id="floatingInput" type="text" name="position"
+            [(ngModel)]="employee.position" placeholder="Position" />
+        <label class="form-label" for="floatingInput">Position*</label>
+        <div *ngIf="position.invalid && (position.touched || position.dirty)">
+            <div class="text-danger" *ngIf="position.errors?.['required']">Position is required.
+            </div>
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">{{isEditing? 'Edit' : 'Create'}}</button>
 </form>
